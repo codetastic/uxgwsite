@@ -8,6 +8,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
+var compression = require('compression');
+var helmet = require('helmet');
 
 // These modules contain code that define the routes (URL paths)
 var index = require('./routes/index');
@@ -37,6 +39,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(helmet());
 
 // Route handling code
 app.use('/', index);
