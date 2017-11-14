@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    h1= title
+    form(method='POST' action='')
+        div.form-group
+            label(for='sender_name') Your Name:
+            input#sender_name.form-control(type='text', placeholder='' name='sender_name' required='true' value=(undefined===message ? '' : message.sender_name))
+        div.form-group   
+            label(for='sender_email') Your Email:
+            input#sender_email.form-control(type='text', placeholder='' name='sender_email' required='true' value=(undefined===message ? '' : message.sender_email))
+        div.form-group    
+            label(for='sender_note') Your message:
+            input#sender_note.form-control(type='text', placeholder='' name='sender_note' required='true' value=(undefined===message ? '' : message.sender_note))
+        button.btn.btn-primary(type='submit') Submit
+    
+        a(class='button' href='/') Cancel
+    
+    if errors
+        ul  
+            for error in errors
+                li!= error.msg
+
+
+
+    

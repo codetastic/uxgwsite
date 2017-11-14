@@ -1,0 +1,228 @@
+/********************************************************
+*
+*   Yannis Marcou! Stylesheet
+*
+*   Fonts
+*
+*   source-sans-pro
+*   200 normal
+*   300 normal
+*   400 normal
+*   600 normal
+*   700 normal
+*
+*   ff-tisa-web-pro
+*   400 normal
+*   700 normal
+*
+*   Blue    : #0099FF
+*   Grey    : #3F3F3F
+*   White   : #fff
+*
+*
+********************************************************/
+
+/*-------------------------------------------------------
+*   Global
+-------------------------------------------------------*/
+
+body {
+    background-color: #0099FF;
+}
+
+/*-------------------------------------------------------
+*   Masthead
+-------------------------------------------------------*/
+
+.name {
+    grid-area: name;
+    font-family: "museo-slab", serif;
+    font-weight: 700;
+    font-style: italic;
+    background-color: red;
+}
+
+.contact {
+    grid-area: contact;
+    background-color: green;
+}
+
+/*-------------------------------------------------------
+*   Intro
+-------------------------------------------------------*/
+
+.header-1 {
+    grid-area: header-1;
+    font-family: "source-sans-pro";
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3em;
+}
+
+.header-2 {
+    grid-area: header-2;
+    font-family: "source-sans-pro";
+    font-weight: 200;
+    font-style: normal;
+    font-size: 2.5em
+}
+
+/*-------------------------------------------------------
+*   List
+-------------------------------------------------------*/
+
+.list-header {
+    grid-area: list-header;
+    font-family: "ff-tisa-web-pro";
+    font-size: 1.2em;
+    list-style: none;
+}
+
+.skills-list {
+    grid-area: skills-list;
+}
+
+li {
+    font-family: "ff-tisa-web-pro";
+    font-size: 1.2em;
+    list-style: none;
+}
+
+/*-------------------------------------------------------
+*   Clients
+-------------------------------------------------------*/
+
+.clients {
+    grid-area: clients;
+}
+
+.clients-1 {
+    grid-area: clients-1;
+    font-family: "ff-tisa-web-pro";
+    font-size: 1.2em;
+    list-style: none;
+}
+
+.clients-2 {
+    grid-area: clients-2;
+    font-family: "ff-tisa-web-pro";
+    font-size: 1.2em;
+    list-style: none;
+}
+
+/*-------------------------------------------------------
+*   Message
+-------------------------------------------------------*/
+
+.message {
+    grid-area: message;
+}
+
+/*-------------------------------------------------------
+*   Contact Overlay
+-------------------------------------------------------*/
+
+#contact-overlay {
+    display: none;
+    grid-column: header-1-start / header-1-end;
+    grid-row: header-1-start / skills-list-end;
+    background-color: purple;
+    z-index: 10;
+}
+
+#contact-confirm {
+    display: none;
+    grid-column: header-1-start / header-1-end;
+    grid-row: header-1-start / skills-list-end;
+    background-color: grey;
+    z-index: 11;
+}
+
+
+/*-------------------------------------------------------
+*   Wrapper
+-------------------------------------------------------*/
+
+.wrapper {
+    display: grid;
+    justify-items: stretch;
+    grid-gap: 0px;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, 50px [name-start]) repeat(8, auto [header-1-start]);
+    grid-template-areas:
+    "name"
+    "contact"
+    "header-1"
+    "header-2"
+    "list-header"
+    "skills-list"
+    "clients"
+    "clients-1"
+    "clients-2"
+    "message"
+}
+
+/*-------------------------------------------------------
+*   Media query
+-------------------------------------------------------*/
+
+/* Design for mobile first, means that my default design, under min-width is for mobile.
+Then with media queries, I amend up.
+Alternatively I would design default for desktop and then via media queries amend down. */
+
+    @media
+    only screen and (min-width: 300px)  {
+    .wrapper {
+        background-color: red;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2, 50px [name-start]) repeat(8, auto [header-1-start]);
+        grid-template-areas:
+            "name"
+            "contact"
+            "header-1"
+            "header-2"
+            "list-header"
+            "skills-list"
+            "clients"
+            "clients-1"
+            "clients-2"
+            "message";
+        }
+    }
+
+    @media
+    only screen and (min-width: 1000px)  {
+    .wrapper {
+        background-color: green;
+        grid-template-columns: 50% auto;
+        grid-template-rows: 50px repeat(7, auto [header-1-start]);
+        grid-template-areas:
+            "name contact"
+            "header-1 header-1"
+            "header-2 header-2"
+            "list-header list-header"
+            "skills-list skills-list"
+            "clients clients"
+            "clients-1 clients-2"
+            "message message";
+        }
+    }
+
+    @media
+    only screen and (min-width: 1500px)   {
+        .wrapper {
+            background-color: yellow;
+            grid-template-columns: 50% auto;
+            grid-template-rows: 50px repeat(7, auto [header-1-start]);
+            grid-template-areas:
+            "name contact"
+            "header-1 header-1"
+            "header-2 header-2"
+            "list-header list-header"
+            "skills-list skills-list"
+            "clients clients"
+            "clients-1 clients-2"
+            "message message";
+            max-width: 100%;
+        }
+    }
