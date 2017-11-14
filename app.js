@@ -20,7 +20,7 @@ var app = express();
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://yannism:G4mwT4D4t4b3s143@ds233895.mlab.com:33895/uxgwdb'
+var mongoDB = process.env.MONGODB_URI || 'mongodb://yannism:G4mwT4D4t4b3s143@ds233895.mlab.com:33895/uxgwdb'
 mongoose.connect(mongoDB, {
   useMongoClient: true
 });
